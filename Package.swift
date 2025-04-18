@@ -13,12 +13,16 @@ let package = Package(
             targets: ["ffmpeg-kit"]
         ),
     ],
-    dependencies: [],
+    dependencies: [
+        // Add external dependencies here if needed
+    ],
     targets: [
         .target(
             name: "ffmpeg-kit",
             dependencies: [],
-            path: "Sources"
+            path: "src/apple", // This points to your source files
+            exclude: [],
+            publicHeadersPath: "." // Use this if your public headers are at the root of src/apple
         ),
         .testTarget(
             name: "ffmpeg-kitTests",
