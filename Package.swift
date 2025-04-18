@@ -24,7 +24,8 @@ let package = Package(
             exclude: ["README.md"],
             publicHeadersPath: ".",
             cSettings: [
-                .headerSearchPath("apple/src/"), // Add path to FFmpeg headers
+                .headerSearchPath("apple/src/"), // Add path to FFmpeg headers,
+                .headerSearchPath("apple/src/FFmpegKitConfig.h")
                 .define("FFMPEG_KIT", to: "1")
             ],
             linkerSettings: [
