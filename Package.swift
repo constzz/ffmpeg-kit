@@ -20,9 +20,13 @@ let package = Package(
         .target(
             name: "ffmpeg-kit",
             dependencies: [],
-            path: "apple/src", // This points to your source files
-            exclude: [],
-            publicHeadersPath: "." // Use this if your public headers are at the root of src/apple
+            path: "apple/src",
+            exclude: ["README.md"],
+            publicHeadersPath: ".",
+            cSettings: [
+                .headerSearchPath("../ffmpeg"), // Add path to FFmpeg headers
+                .define("FFMPEG_KIT", to: "1")
+            ]
         ),
         .testTarget(
             name: "ffmpeg-kitTests",
