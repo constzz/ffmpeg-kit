@@ -24,8 +24,13 @@ let package = Package(
             exclude: ["README.md"],
             publicHeadersPath: ".",
             cSettings: [
-                .headerSearchPath("../ffmpeg"), // Add path to FFmpeg headers
+                .headerSearchPath("apple/src/"), // Add path to FFmpeg headers
                 .define("FFMPEG_KIT", to: "1")
+            ],
+            linkerSettings: [
+                .linkedLibrary("avutil"),
+                .linkedLibrary("avcodec"),
+                .linkedLibrary("avformat"), // Add other required FFmpeg libraries
             ]
         ),
         .testTarget(
